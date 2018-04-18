@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>LOGIN</title>
+<script>
+function validate()
+{
+i
+if(document.newform.password.value.length<7)
+{
+alert("your password cannot have less than 7 chars");
+document.newform.password.focus();
+return false;
+} 
+}
+</script>
+</head>
+<body><center><br><br><br><br>
+<label><b>LOGIN FORM</b></label><br><br><br>
+<div style="width:300px;height:300px;border-radius:15px;background-color:transparent;margin: 0 auto 10px;box-shadow: 1px 1px 3px blue">
+<br><br><br>
+<form name="newform" action="votelogin.php" method="post" onsubmit="validate()">
+<label>User ID</label>
+<input type="text" name="id" placeholder="user id" REQUIRED /><br><br>
+
+<label>Password</label>
+<input type="password" name="password"  placeholder="password" REQUIRED ><br><br><br>
+<input id="button" type="submit" name="submit" value="Log-In" style="border-radius:5px;height:25px;width:100px">
+</form>
+</div>
+</cenetr></body>
+</html>
