@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Voting system</title>
+<style>
+body {
+   background-color: grey;
+   text-align: center;
+     }
+.displaybox {
+   margin: auto;
+   width: 150px;
+   background-color: #FaFaFa;
+   border: 2px solid #000000;
+  padding: 30px;
+   font: 1.5em normal verdana, helvetica, arial, sans-serif;
+     text-align:left;     
+}
+
+</style>
+
+<script type="text/javascript">
+var ajaxRequest=new XMLHttpRequest();
+function getcandidatelist()  
+{
+   if (!ajaxRequest)  {
+         document.getElementById("showcandidate").innerHTML = "Request error!ajax object could not be created";
+         return;      } 
+   ajaxRequest.onreadystatechange = ajaxResponse;
+   ajaxRequest.open("GET","elect.php");
+   ajaxRequest.send();
+}
+function ajaxResponse()  //This gets called when the readyState changes.
+{
+ if (ajaxRequest.readyState != 4)  //  check to see if we're done
+    {  return;  }
+ else {
+   if (ajaxRequest.status == 200) //  check to see if successful
+        {
+                 document.getElementById("showcandidate").innerHTML =
+                               ajaxRequest.responseText; }
+   else {
+     alert("Request failed: " + ajaxRequest.statusText);
+        }
+   }
+}
+function verification()
+	{
+		
+		var voted=document.getElementById("myform").elements['candidate'].value;
+		document.getElementById("showcandidate1").innerHTML=voted;
+		 ajaxRequest.open("GET","update_vote.php?abc="+voted);
+  		 ajaxRequest.send();
+		
+		
+	}
+var count=0;
+function changecolor()
+	{
+		count++;
+		var col="red";
+		if(count%2==0)
+			col="blue";
+		else
+			col="red";
+		document.getElementById('showcandidate').style.backgroundColor=col;
+	}
+		
+</script>
+</head>
+<body>
+	<h1>Elections</h1>
+	<a href="votelogin.html"><button style="border-radius:25px;height:60px;width:60px;background-color:red;border:solid black;float:right"> logout</button></a><br><br>
+	<h2>Please elect most appropriate person!!</h2>
+
+	<form >
+   	   <input type="button" value="Get contender list"  onclick="getcandidatelist();"/>
+		 <input type="button" value="Change Color"  onclick="changecolor();"/>
+	</form>
+
+	<div id="showcandidate" class="displaybox">
+	</div>
+	<br>
+	<input type="submit" value="Submit" onclick="verification();"/>
+	<br>
+	<br>
+	<div id="showcandidate1" class="displaybox"></div>
+
+</body>
+</html>
