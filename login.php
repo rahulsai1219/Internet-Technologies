@@ -12,7 +12,7 @@ if($result)
 	}
 	else
 	{
-		echo"invalid username or password";
+		echo"invalid username or password";//echo statement
 	}
 }
 
