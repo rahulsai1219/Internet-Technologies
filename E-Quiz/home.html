@@ -1,0 +1,246 @@
+<html>
+<head>
+    <style>
+    #grad{
+        background: linear-gradient(#FF293D,#FF4263,#FF293D)
+    }
+    header, footer {
+    width:100%;
+    height:130px;
+    border-radius:15px;
+    color:#ff0000 ;
+    background-color:white;
+    text-align:center;
+
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  align:center;
+}
+.container {
+border-radius: 15px;
+
+}
+.image {
+  opacity: 1;
+  display: block;
+
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.container:hover .image {
+  opacity: 0.3;
+}
+button:hover{
+    cursor:pointer;
+    opacity:5;
+}
+.text {
+  background-color:#FF293D;
+  color: white;
+  border: black;
+  width:100px;
+  height:40px;
+  border-radius:20px;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal {
+    display: none; /* Hidden by default */
+    position:absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%;
+    background-color:transparent;
+     /* Enable scroll if needed */
+
+    padding-top: 50px;
+}
+.contain{
+    padding:15px;
+        border-radius: 15px;
+}
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+#background:hover {
+  opacity: .6;
+  filter: blur(.5px);
+}
+
+
+</style>
+</head>
+<body id="grad">
+<header><pre>                 <img style="height:220x;width:190px;" src="logo.png"><span style="float:right"><h3><a href="#about" style="color:#FF4263">About</a>     <a  style="color:#FF4263" href="mailto:m.rohitdon@gmail.com">Mail us</a>  </h3></pre></span></header><br><br><br><br><br>
+<center>
+<div style="background-color:white;width:1000px;height:320px;padding:1em;border-radius:15px">
+    <div class="container" style="width:300px;float:left">
+        <img class="image" style="height:300px;border-radius:25px" src="admin_avatar.png">
+        <div class="middle">
+            <button onclick="document.getElementById('id01').style.display='block'" style="padding:3px;border-radius:15px"class="text">Admin Login</button>
+        </div>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form style="width:450px"class="modal-content" method="post" action="admin_log.php">
+    <div style="width:430px;height:390px" class="container">
+      <h1 style="color:#FF293D">ADMIN LOGIN</h1>
+
+      <hr>
+      <label ><b>Admin ID</b></label>
+      <input type="text" placeholder="Enter ID" name="id" required>
+<br><br>
+      <label ><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+<br>
+
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+<br><br>
+
+
+      <div class="clearfix">
+        <button type="button"style="background-color:red;color:white;padding:5px;height:30px" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" style="background-color:green;color:white;padding:5px;height:30px" class="signupbtn">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+    </div>
+    <div class="container" style="width:400px;float:left">
+        <img class="image" style="height:300px;border-radius:25px" src="stud_avatar.png">
+        <div class="middle">
+            <button onclick="document.getElementById('id02').style.display='block'" style="padding:3px"class="text">Student Login</button>
+        </div>
+<div id="id02" class="modal">
+          <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <form style="width:450px"class="modal-content" method="post" action="student_log.php">
+            <div style="width:430px;height:390px" class="container">
+              <h1 style="color:#FF293D">Student LOGIN</h1>
+
+              <hr>
+              <label for="id"><b>Student ID</b></label>
+              <input type="text" placeholder="Enter ID" name="id" required>
+        <br><br>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+        <br>
+
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+              </label>
+        <br><br>
+
+
+              <div class="clearfix">
+                <button type="button"style="background-color:red;color:white;padding:5px;height:30px" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" style="background-color:green;color:white;padding:5px;height:30px" class="signupbtn">Login</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+    <div class="container" style="padding:8px;float:left">
+        <img class="image" style="height:300px" src="faculty_avatar.png">
+        <div class="middle">
+            <button onclick="document.getElementById('id03').style.display='block'" style="padding:3px"class="text">Faculty Login</button>
+        </div>
+
+        <div id="id03" class="modal">
+          <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <form style="width:450px"class="modal-content" method="post" action="faculty_log.php">
+            <div style="width:430px;height:390px" class="container">
+              <h1 style="color:#FF293D">Faculty LOGIN</h1>
+
+              <hr>
+              <label for="id"><b>Faculty ID</b></label>
+              <input type="text" placeholder="Enter ID" name="id" required>
+        <br><br>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+        <br>
+
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+              </label>
+        <br><br>
+
+
+              <div class="clearfix">
+                <button type="button"style="background-color:red;color:white;padding:5px;height:30px" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" style="background-color:green;color:white;padding:5px;height:30px" class="signupbtn">Login</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="background-color:white;width:95%;height:320px;padding:1em;border-radius:15px">
+<h3 id="about">E-Quizz</h3>
+<p>This is a platform which provides Online testing facility.</p><p> Developed to make online testing an easy process.</p>
+
+</center>
+
+</body>
+</html>
